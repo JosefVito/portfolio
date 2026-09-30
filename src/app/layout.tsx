@@ -3,6 +3,8 @@ import "./globals.css";
 import { fontClass } from "@/lib/fonts";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { Nav } from "@/components/layout/Nav";
+import { Footer } from "@/components/layout/Footer";
+import { Analytics } from "@vercel/analytics/next";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
@@ -20,6 +22,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SmoothScroll />
         <Nav />
         {children}
+        <Footer />
+        <Analytics />
       </body>
     </html>
   );

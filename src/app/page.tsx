@@ -1,15 +1,34 @@
+import { About } from "@/components/sections/About";
+import { Contact } from "@/components/sections/Contact";
+import { Experience } from "@/components/sections/Experience";
+import { Hero } from "@/components/sections/Hero";
+import { Services } from "@/components/sections/Services";
+import { Work } from "@/components/sections/Work";
+import { profile } from "@/data/profile";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+
 export default function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: `${profile.firstName} ${profile.lastName}`,
+    jobTitle: "Full-Stack Developer",
+    url: siteUrl,
+    email: `mailto:${profile.email}`,
+    sameAs: [profile.socials.linkedin, profile.socials.github],
+    address: { "@type": "PostalAddress", addressCountry: "PH" },
+    knowsAbout: profile.stack,
+  };
   return (
-    <main id="main" className="container-x section pt-40">
-      <p className="label text-accent">— Tokens</p>
-      <h1 className="display text-[clamp(48px,8vw,112px)] font-bold">
-        <span className="text-accent">Josef Vito</span><br />
-        <span className="font-semibold">Evangelista</span>
-      </h1>
-      <p className="display text-outline text-6xl mt-6">Developer</p>
-      <p className="text-muted mt-6 max-w-[65ch]">Body copy in Satoshi. Muted grey on near-black at about 5.8:1 contrast.</p>
-      <p className="font-mono text-sm mt-4">JetBrains Mono 01 / 06</p>
-      <div className="card p-6 mt-8">A card surface.</div>
+    <main id="main">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <Hero />
+      <About />
+      <Experience />
+      <Work />
+      <Services />
+      <Contact />
     </main>
   );
 }
