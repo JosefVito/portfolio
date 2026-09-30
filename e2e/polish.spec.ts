@@ -88,7 +88,8 @@ test.describe("desktop", () => {
     await page.goto("/");
     const mid = (i: number) => page.evaluate(idx => { const li = document.querySelectorAll("#experience ol > li")[idx]; window.scrollTo(0, li.getBoundingClientRect().top + scrollY - innerHeight / 2 + 40); }, i);
     const card = page.getByTestId("detail-card");
-    await mid(0); await page.waitForTimeout(900);
+    await mid(1); await page.waitForTimeout(900); // sticky only engages once the list has scrolled past the card's pin point
+    await expect(card).toContainText("Full Stack Development Trainee");
     const topA = await card.evaluate(e => e.getBoundingClientRect().top);
     await mid(3); await page.waitForTimeout(1200);
     await expect(card).toContainText("Vito Cafe");

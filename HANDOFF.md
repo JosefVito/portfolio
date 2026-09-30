@@ -11,6 +11,9 @@
 - Tasks 19–21: MDX case studies, 404, OG images/sitemap/robots/icon, full e2e (reduced motion, 360px, contact)
 - Tasks 11–18: hero, about, experience, work track, services, contact API + form, assembled home page with JSON-LD and manifest
 
+## Polish round (owner review, 2026-09-30)
+Done: spaces between animated words, bigger header, aligned hamburger, About word swap + cursor spotlight, Work rising cards + hover spotlight, Contact "SAY HELLO" faint slow crawl, new Stack section with official logos (seven sections now), Experience follows scroll with pinned card, case-study track no longer grabs the wheel, spacing/type scale up, name-first phone hero. Local-only: still not pushed.
+
 ## Vercel env vars (set for Production AND Preview)
 `RESEND_API_KEY`, `CONTACT_TO` (must be the Resend account email until a domain is verified), `NEXT_PUBLIC_WHATSAPP`, `NEXT_PUBLIC_SITE_URL`. A production build now fails if the site URL cannot be resolved; contact failures are logged with a `[contact]` prefix.
 

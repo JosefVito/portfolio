@@ -2,13 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { Chip } from "@/components/ui/Chip";
 import { TiltCard } from "@/components/ui/TiltCard";
+import { RiseLi } from "@/components/work/RiseLi";
 import type { Project } from "@/data/schemas";
 
 export function ProjectCard({ project: p, total }: { project: Project; total: number }) {
   return (
-    <li className="w-[78vw] shrink-0 snap-start sm:w-[420px]">
-      <TiltCard max={4} className="h-full">
-        <Link href={`/work/${p.slug}`} className="group card block h-full p-3 transition-colors hover:bg-surface-hover">
+    <RiseLi index={p.n - 1} className="w-[78vw] shrink-0 snap-start sm:w-[440px]">
+      <TiltCard max={4} className="track-card h-full">
+        <Link href={`/work/${p.slug}`} className="group card block h-full p-4 transition-colors hover:bg-surface-hover">
           <div className="relative aspect-[16/10] overflow-hidden rounded-[10px]">
             <Image src={p.cover} alt={`${p.title} cover`} fill sizes="(min-width: 640px) 420px, 78vw" className="object-cover transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:translate-x-3 group-hover:scale-[1.03]" />
             {p.status === "in-progress" && <span className="absolute left-3 top-3"><Chip accent>In progress</Chip></span>}
@@ -21,6 +22,6 @@ export function ProjectCard({ project: p, total }: { project: Project; total: nu
           <ul className="mt-4 flex flex-wrap gap-2">{p.chips.map(c => <li key={c}><Chip>{c}</Chip></li>)}</ul>
         </Link>
       </TiltCard>
-    </li>
+    </RiseLi>
   );
 }

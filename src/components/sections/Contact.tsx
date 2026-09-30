@@ -11,11 +11,11 @@ import { whatsappHref } from "@/lib/whatsapp";
 export function Contact() {
   return (
     <section id="contact" className="section overflow-hidden">
-      <Marquee word="REACH" position="top" />
+      <Marquee word="SAY HELLO" position="top" />
       <div className="container-x relative">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <Eyebrow text="Get in touch" n={6} />
+            <Eyebrow text="Get in touch" n={7} />
             <SectionHeading lead="Let's build" accent="something." />
           </div>
           <div className="text-right">
@@ -24,7 +24,7 @@ export function Contact() {
           </div>
         </div>
         <div className="mt-12 grid gap-6 lg:grid-cols-[1fr_1.4fr]">
-          <Reveal className="card border-accent/60 p-6 md:p-8">
+          <Reveal className="card border-accent/60 p-8 md:p-10">
             <p className="label text-accent">Fastest reply</p>
             <h3 className="display mt-3 text-3xl font-bold">Chat on WhatsApp</h3>
             <p className="mt-3 text-muted">Tell me what you&apos;re building. I reply within a day, usually much faster.</p>

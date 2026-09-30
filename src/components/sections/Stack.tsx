@@ -10,7 +10,7 @@ function Tile({ t }: { t: StackTool }) {
       data-tool
       data-hot={t.hot}
       style={{ "--brand": t.brand } as React.CSSProperties}
-      className={`group flex flex-col gap-1 rounded-2xl border bg-surface p-5 transition-colors hover:bg-surface-hover ${t.hot ? "border-accent" : "border-line"}`}
+      className={`group flex flex-col gap-1 rounded-2xl border bg-surface p-5 transition-colors hover:bg-surface-hover md:p-6 ${t.hot ? "border-accent" : "border-line"}`}
     >
       {t.path ? (
         <svg viewBox="0 0 24 24" aria-hidden className="mb-3 size-8 fill-current text-fg/70 transition-colors duration-300 group-hover:text-[color:var(--brand)]"><path d={t.path} /></svg>

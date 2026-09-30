@@ -9,11 +9,11 @@ export function Services() {
       <div className="container-x">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <Eyebrow text="What I do" n={5} />
+            <Eyebrow text="What I do" n={6} />
             <SectionHeading lead="Services that" accent="ship." />
           </div>
           <div className="text-right">
-            <p className="display text-2xl font-bold">06 <span className="label text-muted">capabilities</span></p>
+            <p className="display flex items-baseline justify-end gap-2 text-2xl font-bold">{String(services.length).padStart(2, "0")} <span className="label text-muted">capabilities</span></p>
             <p className="label text-muted">design → deploy</p>
           </div>
         </div>

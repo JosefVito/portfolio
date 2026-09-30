@@ -3,6 +3,7 @@ import { Contact } from "@/components/sections/Contact";
 import { Experience } from "@/components/sections/Experience";
 import { Hero } from "@/components/sections/Hero";
 import { Services } from "@/components/sections/Services";
+import { Stack } from "@/components/sections/Stack";
 import { Work } from "@/components/sections/Work";
 import { profile } from "@/data/profile";
 import { getSiteUrl } from "@/lib/site";
@@ -26,6 +27,7 @@ export default function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Hero />
       <About />
+      <Stack />
       <Experience />
       <Work />
       <Services />

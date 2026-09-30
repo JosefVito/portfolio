@@ -10,7 +10,8 @@ Router, Tailwind 4, Motion, Lenis, MDX, Resend. Spec: `docs/superpowers/specs/`.
 - Content lives in `src/data/*.ts` and `src/content/work/*.mdx`. No CMS, no database.
 - Server components by default; `"use client"` only for motion or state.
 - Every animation honours `prefers-reduced-motion`. Pointer effects only on `(hover: hover) and (pointer: fine)`.
-- Accent `#45F0B4` only on: status dot, primary button, one phrase per headline, active timeline node, progress bar.
+- Accent `#45F0B4` only on: status dot, primary button, one phrase per headline, active timeline node, progress bar, outline of the four main Stack tools, and the cursor-lit dots in About (owner approved these two extras).
+- Never name a utility `text-outline`: Tailwind reads it as the outline colour token and fills letters grey. Use `stroke-text` / `stroke-faint`.
 - No new dependency for what a few lines do. Mark shortcuts with `// ponytail:`.
 - TDD: failing test → minimal code → green → commit.
 

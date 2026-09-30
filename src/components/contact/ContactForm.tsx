@@ -29,7 +29,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} noValidate className="card relative p-6 md:p-8">
+    <form onSubmit={onSubmit} noValidate className="card relative p-8 md:p-10">
       <fieldset>
         <legend className="label text-muted">I&apos;d like to talk about…</legend>
         <div className="mt-3 flex flex-wrap gap-2">
