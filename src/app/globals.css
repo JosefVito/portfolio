@@ -1,26 +1,40 @@
 @import "tailwindcss";
+@import "lenis/dist/lenis.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-bg: #0a0a0b;
+  --color-fg: #f2f1ec;
+  --color-muted: #8d8b84;
+  --color-line: rgba(255, 255, 255, 0.08);
+  --color-surface: rgba(255, 255, 255, 0.03);
+  --color-surface-hover: rgba(255, 255, 255, 0.06);
+  --color-accent: #45f0b4;
+  --color-accent-ink: #0a0a0b;
+  --color-accent-glow: rgba(69, 240, 180, 0.35);
+  --color-outline: rgba(255, 255, 255, 0.45);
+
+  --font-display: var(--font-clash), "Helvetica Neue", Arial, sans-serif;
+  --font-body: var(--font-satoshi), "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, Menlo, monospace;
+
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+:root { color-scheme: dark; }
+html { background: var(--color-bg); color: var(--color-fg); }
+body { font-family: var(--font-body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+::selection { background: var(--color-accent); color: var(--color-accent-ink); }
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+@utility container-x { max-width: 1440px; margin-inline: auto; padding-inline: clamp(20px, 5vw, 80px); }
+@utility section { padding-block: clamp(96px, 12vw, 160px); position: relative; }
+@utility label { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; }
+@utility display { font-family: var(--font-display); letter-spacing: -0.02em; line-height: 0.95; text-wrap: balance; }
+@utility text-outline { color: transparent; -webkit-text-stroke: 1px var(--color-outline); }
+@utility card { border: 1px solid var(--color-line); background: var(--color-surface); border-radius: 16px; }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.marquee-track { display: flex; white-space: nowrap; will-change: transform; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }
