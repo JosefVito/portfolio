@@ -1,4 +1,4 @@
-export function Eyebrow({ text, n, total = 6, className = "" }: { text: string; n?: number; total?: number; className?: string }) {
+export function Eyebrow({ text, n, total = 7, className = "" }: { text: string; n?: number; total?: number; className?: string }) {
   return (
     <p className={`label text-accent ${className}`}>
       <span aria-hidden className="mr-3 inline-block h-px w-6 bg-accent align-middle" />

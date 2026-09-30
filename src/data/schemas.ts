@@ -57,6 +57,18 @@ export const ProjectSchema = z.object({
 });
 export type Project = z.infer<typeof ProjectSchema>;
 
+export const StackToolSchema = z.object({
+  name: z.string().min(1),
+  note: z.string().min(5),
+  hot: z.boolean(),
+  path: z.string(),
+  letters: z.string(),
+  brand: z.string().regex(/^#[0-9a-f]{6}$/),
+});
+export const StackGroupSchema = z.object({ title: z.string().min(1), tools: z.array(StackToolSchema).length(4) });
+export type StackTool = z.infer<typeof StackToolSchema>;
+export type StackGroup = z.infer<typeof StackGroupSchema>;
+
 export const ServiceSchema = z.object({
   n: z.number().int().min(1).max(6),
   title: z.string(),
