@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <main className="container-x section">
+    <main id="main" className="container-x section pt-40">
       <p className="label text-accent">— Tokens</p>
       <h1 className="display text-[clamp(48px,8vw,112px)] font-bold">
         <span className="text-accent">Josef Vito</span><br />
