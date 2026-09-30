@@ -42,6 +42,17 @@ describe("POST /api/contact", () => {
     expect(res.status).toBe(500);
     expect((await res.json()).error).toMatch(/email me/i);
   });
+  it("logs Resend failures and missing config so the owner can see them", async () => {
+    const log = vi.spyOn(console, "error").mockImplementation(() => {});
+    send.mockResolvedValue({ data: null, error: { message: "boom", name: "x" } });
+    await POST(req(body));
+    expect(log).toHaveBeenCalledWith(expect.stringContaining("[contact]"), expect.anything());
+    log.mockClear();
+    delete process.env.CONTACT_TO;
+    await POST(req(body, "8.8.8.8"));
+    expect(log).toHaveBeenCalledWith(expect.stringContaining("[contact]"));
+    log.mockRestore();
+  });
   it("dry run skips Resend", async () => {
     process.env.CONTACT_DRY_RUN = "1";
     expect((await POST(req(body))).status).toBe(200);

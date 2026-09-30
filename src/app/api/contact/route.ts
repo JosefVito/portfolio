@@ -15,7 +15,10 @@ export async function POST(req: Request) {
   if (process.env.CONTACT_DRY_RUN === "1") return Response.json({ ok: true });
 
   const to = process.env.CONTACT_TO;
-  if (!to || !process.env.RESEND_API_KEY) return Response.json({ error: "Contact form is not configured. Email me directly." }, { status: 500 });
+  if (!to || !process.env.RESEND_API_KEY) {
+    console.error("[contact] CONTACT_TO or RESEND_API_KEY is not set; message dropped");
+    return Response.json({ error: "Contact form is not configured. Email me directly." }, { status: 500 });
+  }
 
   const resend = new Resend(process.env.RESEND_API_KEY);
   const { error } = await resend.emails.send({
@@ -25,6 +28,9 @@ export async function POST(req: Request) {
     subject: `[Portfolio] ${subject} — ${name}`,
     text: `${message}\n\n— ${name} <${email}>\nSubject: ${subject}\nIP: ${ip}`,
   });
-  if (error) return Response.json({ error: "Couldn't send right now. Email me directly or use WhatsApp." }, { status: 500 });
+  if (error) {
+    console.error("[contact] Resend send failed", error);
+    return Response.json({ error: "Couldn't send right now. Email me directly or use WhatsApp." }, { status: 500 });
+  }
   return Response.json({ ok: true });
 }

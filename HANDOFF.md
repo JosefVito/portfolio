@@ -11,6 +11,9 @@
 - Tasks 19–21: MDX case studies, 404, OG images/sitemap/robots/icon, full e2e (reduced motion, 360px, contact)
 - Tasks 11–18: hero, about, experience, work track, services, contact API + form, assembled home page with JSON-LD and manifest
 
+## Vercel env vars (set for Production AND Preview)
+`RESEND_API_KEY`, `CONTACT_TO` (must be the Resend account email until a domain is verified), `NEXT_PUBLIC_WHATSAPP`, `NEXT_PUBLIC_SITE_URL`. A production build now fails if the site URL cannot be resolved; contact failures are logged with a `[contact]` prefix.
+
 ## Blocked / waiting on owner
 - Task 5 owner steps: `gh auth login` as JosefVito, create repo and push, branch protection, create Vercel project + env vars, enable Analytics. Nothing has been pushed yet.
 
