@@ -19,10 +19,13 @@ class IO {
   root = null; rootMargin = ""; thresholds = [];
 }
 vi.stubGlobal("IntersectionObserver", IO);
-Object.defineProperty(window, "matchMedia", {
-  writable: true,
-  value: (query: string) => ({
-    matches: false, media: query, onchange: null,
-    addEventListener() {}, removeEventListener() {}, addListener() {}, removeListener() {}, dispatchEvent() { return false; },
-  }),
-});
+// Node-environment tests (route handlers) have no window.
+if (typeof window !== "undefined") {
+  Object.defineProperty(window, "matchMedia", {
+    writable: true,
+    value: (query: string) => ({
+      matches: false, media: query, onchange: null,
+      addEventListener() {}, removeEventListener() {}, addListener() {}, removeListener() {}, dispatchEvent() { return false; },
+    }),
+  });
+}
