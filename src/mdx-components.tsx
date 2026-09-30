@@ -5,7 +5,7 @@ const components: MDXComponents = {
   h3: props => <h3 {...props} className="display mt-8 text-xl font-bold" />,
   p: props => <p {...props} className="mt-4 max-w-[65ch] text-muted" />,
   ul: props => <ul {...props} className="mt-4 space-y-2 text-muted" />,
-  li: props => <li {...props} className="flex gap-3 before:mt-2.5 before:size-1.5 before:shrink-0 before:rounded-full before:bg-accent before:content-['']" />,
+  li: props => <li {...props} className="relative pl-5 before:absolute before:left-0 before:top-2.5 before:size-1.5 before:rounded-full before:bg-accent before:content-['']" />,
   strong: props => <strong {...props} className="font-medium text-fg" />,
   a: props => <a {...props} className="text-accent underline-offset-4 hover:underline" target={props.href?.startsWith("http") ? "_blank" : undefined} rel="noreferrer" />,
   code: props => <code {...props} className="rounded bg-surface px-1.5 py-0.5 font-mono text-[0.9em] text-fg" />,
