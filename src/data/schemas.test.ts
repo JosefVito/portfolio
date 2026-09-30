@@ -4,6 +4,8 @@ import { profile } from "@/data/profile";
 import { experience } from "@/data/experience";
 import { projects, getProject, nextProject } from "@/data/projects";
 import { services } from "@/data/services";
+import { existsSync } from "node:fs";
+import path from "node:path";
 
 describe("content data", () => {
   it("profile is valid", () => expect(ProfileSchema.safeParse(profile).success).toBe(true));
@@ -29,5 +31,17 @@ describe("content data", () => {
   });
   it("rejects a project without a cover", () => {
     expect(ProjectSchema.safeParse({ ...projects[0], cover: "" }).success).toBe(false);
+  });
+});
+
+describe("image files", () => {
+  const pub = (p: string) => path.join(process.cwd(), "public", p);
+  it("every project cover and screenshot exists on disk", () => {
+    for (const p of projects) {
+      expect(existsSync(pub(p.cover)), p.cover).toBe(true);
+      p.screenshots.forEach(s => expect(existsSync(pub(s.src)), s.src).toBe(true));
+    }
+    expect(existsSync(pub("/images/portrait.jpg"))).toBe(true);
+    expect(existsSync(pub("/images/about.jpg"))).toBe(true);
   });
 });
