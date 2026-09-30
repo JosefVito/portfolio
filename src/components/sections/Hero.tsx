@@ -67,7 +67,7 @@ export function Hero() {
           </h2>
           <p className="label mt-4 text-accent">{profile.tagline}</p>
           <Reveal delay={0.9}><p className="mt-4 max-w-[36ch] text-muted lg:ml-auto">{profile.intro}</p></Reveal>
-          <p className="label mt-12 text-muted motion-safe:animate-bounce lg:mt-24">Scroll ↓ · 01 / 06</p>
+          <p className="label mt-12 text-muted motion-safe:animate-pulse lg:mt-24">Scroll ↓ · 01 / 06</p>
         </div>
       </div>
     </section>
