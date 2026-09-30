@@ -249,8 +249,9 @@ Card copy (drafts, owner approves):
 1. Nav pill with "← All work".
 2. Hero: eyebrow "Case study · 0N / 04 · year", h1 title (per-word reveal), one-line
    summary, meta grid (Role, Timeline, Stack, Live link or "In progress").
-3. Hero screenshot 16:9 inside a browser-frame chrome, slight parallax. The home card
-   image morphs into it on navigation (`view-transition-name` per slug).
+3. Hero screenshot 16:9 inside a browser-frame chrome, slight parallax. Stretch goal,
+   not in the launch plan: the home card image morphs into it on navigation once
+   Next.js marks `viewTransition` stable.
 4. Body: two columns on `≥ lg`: sticky mini table of contents (Context, What I built,
    Architecture, Outcome) + MDX content. Screenshots in a 2-up grid, `next/image`,
    click toggles a larger inline view (no lightbox library).
@@ -262,7 +263,7 @@ in `src/data/projects.ts`. K-Station's architecture section carries the exclusiv
 ownership diagram (storefront reads Medusa and Strapi; the two never talk).
 
 MacDevelop page: same template, renders as images, "In progress, design complete"
-chip in the meta grid, no live link, no next-project morph from a missing screenshot.
+chip in the meta grid and no live link.
 
 ## 7. Content model
 
