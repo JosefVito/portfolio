@@ -19,7 +19,7 @@ export const ProfileSchema = z.object({
   stats: z.array(z.object({ value: z.number().positive(), suffix: z.string(), label: z.string() })).length(3),
   stack: z.array(z.string()).min(8),
   email: z.email(),
-  socials: z.object({ linkedin: z.url(), github: z.url() }),
+  socials: z.object({ linkedin: z.url(), github: z.url(), instagram: z.url(), facebook: z.url() }),
   whatsappPrefill: z.string().min(5),
 });
 export type Profile = z.infer<typeof ProfileSchema>;

@@ -12,7 +12,7 @@ export function About() {
       <AboutBackdrop />
       <div className="container-x relative grid items-center gap-16 lg:grid-cols-[1.3fr_1fr]">
         <div>
-          <Eyebrow text="About me" n={2} />
+          <Eyebrow text="About me" />
           <SectionHeading lead={profile.aboutHeadline.lead} accent={profile.aboutHeadline.accent} />
           <Reveal delay={0.2}><p className="mt-8 max-w-[60ch] text-lg text-muted">{profile.bio}</p></Reveal>
           <div className="mt-12 grid grid-cols-3 gap-8 max-w-[560px]">

@@ -24,6 +24,8 @@ export const profile: Profile = {
   socials: {
     linkedin: "https://www.linkedin.com/in/josefvitoevangelista/",
     github: "https://github.com/JosefVito",
+    instagram: "https://www.instagram.com/jsfvnglst/",
+    facebook: "https://www.facebook.com/ttpvnglst",
   },
   whatsappPrefill: "Hi Josef, I found your portfolio and I'd like to talk about a project.",
 };

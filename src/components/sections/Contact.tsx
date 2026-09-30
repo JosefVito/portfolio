@@ -15,7 +15,7 @@ export function Contact() {
       <div className="container-x relative">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <Eyebrow text="Get in touch" n={7} />
+            <Eyebrow text="Get in touch" />
             <SectionHeading lead="Let's build" accent="something." />
           </div>
           <div className="text-right">

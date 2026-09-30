@@ -14,8 +14,11 @@
 ## Polish round (owner review, 2026-09-30)
 Done: spaces between animated words, bigger header, aligned hamburger, About word swap + cursor spotlight, Work rising cards + hover spotlight, Contact "SAY HELLO" faint slow crawl, new Stack section with official logos (seven sections now), Experience follows scroll with pinned card, case-study track no longer grabs the wheel, spacing/type scale up, name-first phone hero. Local-only: still not pushed.
 
+## Socials (done)
+One data source `src/data/socials.ts` feeds the icon row in the footer, hero and phone menu (Gmail, GitHub, LinkedIn, Instagram, Facebook, WhatsApp). Scroll hint, section step counters, "Sent via Resend" line and the footer location/clock/built-with line are removed.
+
 ## Vercel env vars (set for Production AND Preview)
-`RESEND_API_KEY`, `CONTACT_TO` (must be the Resend account email until a domain is verified), `NEXT_PUBLIC_WHATSAPP`, `NEXT_PUBLIC_SITE_URL`. A production build now fails if the site URL cannot be resolved; contact failures are logged with a `[contact]` prefix.
+`RESEND_API_KEY`, `CONTACT_TO` (must be the Resend account email until a domain is verified), `NEXT_PUBLIC_WHATSAPP` = `639150623492` (PH number, 63 + 10 digits, no plus), `NEXT_PUBLIC_SITE_URL`. A production build now fails if the site URL cannot be resolved; contact failures are logged with a `[contact]` prefix.
 
 ## Blocked / waiting on owner
 - Task 5 owner steps: `gh auth login` as JosefVito, create repo and push, branch protection, create Vercel project + env vars, enable Analytics. Nothing has been pushed yet.

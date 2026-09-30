@@ -50,9 +50,7 @@ export function ContactForm() {
       <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
         <button type="submit" disabled={state.kind === "sending"} className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3.5 text-sm font-medium text-accent-ink shadow-[0_12px_32px_-12px_var(--color-accent-glow)] disabled:opacity-60">
           {state.kind === "sending" ? "Sending…" : state.kind === "sent" ? "Sent ✓" : "Send message ↵"}
-        </button>
-        <p className="label text-muted">Sent via Resend · no newsletter, ever</p>
-      </div>
+        </button>      </div>
       {state.kind === "error" && <p role="alert" className="mt-4 text-sm text-fg">{state.message}</p>}
       {state.kind === "sent" && <p role="status" className="mt-4 text-sm text-fg">Sent. I&apos;ll reply within a day.</p>}
     </form>

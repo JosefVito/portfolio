@@ -11,6 +11,10 @@ function fill() {
 }
 
 describe("ContactForm", () => {
+  it("has no sent-via or newsletter small print", () => {
+    render(<ContactForm />);
+    expect(screen.queryByText(/Resend|newsletter/i)).toBeNull();
+  });
   it("shows a validation error without calling the API", async () => {
     const f = vi.spyOn(global, "fetch");
     render(<ContactForm />);

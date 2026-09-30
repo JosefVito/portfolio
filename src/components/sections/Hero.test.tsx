@@ -12,4 +12,10 @@ describe("Hero", () => {
     expect(screen.getByRole("link", { name: /view work/i })).toHaveAttribute("href", "#work");
     expect(screen.getByAltText(/Josef Vito/)).toBeInTheDocument();
   });
+  it("has the six social icons and no scroll hint or step counter", () => {
+    render(<Hero />);
+    ["Gmail", "GitHub", "LinkedIn", "Instagram", "Facebook", "WhatsApp"].forEach(n => expect(screen.getByRole("link", { name: n })).toBeInTheDocument());
+    expect(screen.queryByText(/scroll/i)).toBeNull();
+    expect(screen.queryByText(/\d{2} \/ \d{2}/)).toBeNull();
+  });
 });

@@ -14,6 +14,23 @@ test("words in animated headings have visible gaps", async ({ page }) => {
   gaps.forEach(g => expect(g).toBeGreaterThan(3));
 });
 
+test("footer and hero show six social links and the small print is gone", async ({ page }) => {
+  await page.goto("/");
+  for (const scope of ["footer", "#hero"]) {
+    const hrefs = await page.locator(`${scope} a[aria-label]:not([href='/'])`).evaluateAll(as => as.map(a => `${a.getAttribute("aria-label")}=${a.getAttribute("href")}`));
+    expect(hrefs, scope).toHaveLength(6);
+    expect(hrefs[0]).toMatch(/^Gmail=mailto:josefvitomangalino@gmail\.com$/);
+    expect(hrefs).toContain("Instagram=https://www.instagram.com/jsfvnglst/");
+    expect(hrefs).toContain("Facebook=https://www.facebook.com/ttpvnglst");
+    expect(hrefs.at(-1)).toMatch(/^WhatsApp=https:\/\/wa\.me\/\d{8,15}\?text=/);
+  }
+  const text = await page.locator("body").innerText();
+  for (const gone of ["Scroll", "Sent via Resend", "newsletter", "Built with Next"]) expect(text, gone).not.toContain(gone);
+  const footer = await page.locator("footer").innerText(); // the About photo badge legitimately says Siargao
+  for (const gone of ["Siargao", "GMT", "Built with"]) expect(footer, gone).not.toContain(gone);
+  expect(text).not.toMatch(/\b0\d \/ 07\b/);
+});
+
 test("outlined text is really an outline, not a grey fill", async ({ page }) => {
   await page.goto("/");
   const color = await page.locator("#hero .stroke-text").first().evaluate(e => getComputedStyle(e).color);

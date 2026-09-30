@@ -12,7 +12,7 @@ export function Work() {
       <div className="container-x relative">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <Eyebrow text="Selected work" n={5} />
+            <Eyebrow text="Selected work" />
             <SectionHeading lead="Case" accent="studies." />
           </div>
           <div className="text-right">

@@ -9,7 +9,7 @@ export function Services() {
       <div className="container-x">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <Eyebrow text="What I do" n={6} />
+            <Eyebrow text="What I do" />
             <SectionHeading lead="Services that" accent="ship." />
           </div>
           <div className="text-right">

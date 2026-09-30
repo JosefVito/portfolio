@@ -9,7 +9,7 @@ export function Experience() {
       <div className="container-x">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <Eyebrow text="Experience" n={4} />
+            <Eyebrow text="Experience" />
             <SectionHeading lead="From running a cafe to shipping" accent="commerce platforms." />
           </div>
           <div className="text-right">

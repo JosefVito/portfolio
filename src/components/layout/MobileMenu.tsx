@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { hrefFor, NAV_LINKS } from "@/components/layout/nav-links";
 import { EASE } from "@/lib/motion";
-import { profile } from "@/data/profile";
+import { SocialIcons } from "@/components/ui/SocialIcons";
 import { whatsappHref } from "@/lib/whatsapp";
 
 export function MobileMenu({ open, onClose, pathname }: { open: boolean; onClose: () => void; pathname: string }) {
@@ -34,10 +34,7 @@ export function MobileMenu({ open, onClose, pathname }: { open: boolean; onClose
           </ul>
           <div className="flex flex-col gap-4">
             <a href={whatsappHref()} target="_blank" rel="noreferrer" className="rounded-full bg-accent px-6 py-4 text-center font-medium text-accent-ink">Chat on WhatsApp</a>
-            <div className="flex gap-6 label text-muted">
-              <a href={profile.socials.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-              <a href={profile.socials.github} target="_blank" rel="noreferrer">GitHub</a>
-            </div>
+            <SocialIcons />
           </div>
         </motion.div>
       )}

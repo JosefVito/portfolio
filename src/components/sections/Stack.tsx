@@ -27,7 +27,7 @@ export function Stack() {
   return (
     <section id="stack" className="section">
       <div className="container-x">
-        <Eyebrow text="Stack" n={3} />
+        <Eyebrow text="Stack" />
         <SectionHeading lead="The tools I" accent="ship with." />
         <div className="mt-14 grid gap-12">
           {stackGroups.map(g => (

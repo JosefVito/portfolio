@@ -9,6 +9,7 @@ describe("About", () => {
     expect(screen.getByText("production projects")).toBeInTheDocument();
     expect(screen.getByText("yrs running businesses")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /full stack/i })).toHaveAttribute("href", "#stack");
+    expect(screen.queryByText(/\d{2} \/ \d{2}/)).toBeNull(); // no "02 / 07" step counter
     expect(screen.getByText("OPERATOR")).toBeInTheDocument();
     expect(screen.getByText("ENGINEER")).toBeInTheDocument();
   });
