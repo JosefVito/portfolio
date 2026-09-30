@@ -22,16 +22,34 @@
 
 :root { color-scheme: dark; }
 html { background: var(--color-bg); color: var(--color-fg); }
-body { font-family: var(--font-body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--font-body); font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
 ::selection { background: var(--color-accent); color: var(--color-accent-ink); }
 :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
 
-@utility container-x { max-width: 1440px; margin-inline: auto; padding-inline: clamp(20px, 5vw, 80px); }
-@utility section { padding-block: clamp(96px, 12vw, 160px); position: relative; }
-@utility label { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; }
-@utility display { font-family: var(--font-display); letter-spacing: -0.02em; line-height: 0.95; text-wrap: balance; }
-@utility text-outline { color: transparent; -webkit-text-stroke: 1px var(--color-outline); }
-@utility card { border: 1px solid var(--color-line); background: var(--color-surface); border-radius: 16px; }
+@utility container-x { max-width: 1440px; margin-inline: auto; padding-inline: clamp(24px, 6vw, 96px); }
+@utility section { padding-block: clamp(112px, 14vw, 192px); position: relative; }
+@utility label { font-family: var(--font-mono); font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.14em; }
+@utility display { font-family: var(--font-display); letter-spacing: -0.02em; line-height: 1.05; text-wrap: balance; }
+/* Not named text-outline: Tailwind reads that as the outline colour token and fills the letters grey. */
+@utility stroke-text { color: transparent; -webkit-text-fill-color: transparent; -webkit-text-stroke: 1px var(--color-outline); }
+@utility stroke-faint { color: transparent; -webkit-text-fill-color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, 0.13); }
+@utility card { border: 1px solid var(--color-line); background: var(--color-surface); border-radius: 20px; }
+
+/* About backdrop: faint dot grid, plus a mint copy revealed only around the cursor (--mx/--my set from JS). */
+.dots-base { background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1.6px); background-size: 24px 24px; }
+.dots-lit {
+  background-image: radial-gradient(var(--color-accent) 1.3px, transparent 2px); background-size: 24px 24px;
+  -webkit-mask-image: radial-gradient(circle 200px at var(--mx, -999px) var(--my, -999px), #000, transparent);
+  mask-image: radial-gradient(circle 200px at var(--mx, -999px) var(--my, -999px), #000, transparent);
+}
+
+/* Work track: pointing at one card keeps it bright and dims the rest. Opacity lives on .track-card, not on the
+   animated <li>, because Motion writes inline opacity to the li and inline would beat this rule. */
+.track-card { transition: opacity 0.3s var(--ease-out-expo); }
+@media (hover: hover) and (pointer: fine) {
+  .track:has(.track-card:hover) .track-card:not(:hover) { opacity: 0.4; }
+}
+.track:has(.track-card:focus-within) .track-card:not(:focus-within) { opacity: 0.4; }
 
 .marquee-track { display: flex; white-space: nowrap; will-change: transform; }
 

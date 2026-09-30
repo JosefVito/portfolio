@@ -46,13 +46,13 @@ export function Nav() {
         animate={{ y: hidden ? -96 : 0, opacity: hidden ? 0 : 1 }}
         transition={{ duration: 0.45, ease: EASE }}
       >
-        <nav aria-label="Primary" className="flex items-center gap-1 rounded-full border border-line bg-bg/70 py-1.5 pl-4 pr-1.5 backdrop-blur-md">
+        <nav aria-label="Primary" className="flex items-center gap-1 rounded-full border border-line bg-bg/70 py-2 pl-6 pr-2 backdrop-blur-md">
           <Logo className="mr-3" />
-          {!isHome && <Link href="/#work" className="hidden md:inline px-3 py-1.5 text-sm text-muted hover:text-fg">All work</Link>}
+          {!isHome && <Link href="/#work" className="hidden md:inline px-4 py-2 text-base text-muted hover:text-fg">All work</Link>}
           <ul className="hidden md:flex items-center">
             {NAV_LINKS.map(l => (
               <li key={l.href}>
-                <Link href={hrefFor(l, pathname)} className="relative px-3 py-1.5 text-sm text-muted transition-colors hover:text-fg" aria-current={active === l.href ? "location" : undefined}>
+                <Link href={hrefFor(l, pathname)} className="relative px-4 py-2 text-base text-muted transition-colors hover:text-fg" aria-current={active === l.href ? "location" : undefined}>
                   {active === l.href && <span aria-hidden className="absolute left-0.5 top-1/2 size-1.5 -translate-y-1/2 rounded-full bg-accent" />}
                   {l.label}
                 </Link>
@@ -60,10 +60,15 @@ export function Nav() {
             ))}
           </ul>
           <Magnetic className="hidden md:inline-block ml-1">
-            <Link href={isHome ? "#contact" : "/#contact"} className="inline-flex rounded-full bg-accent px-4 py-2 text-sm font-medium text-accent-ink shadow-[0_8px_24px_-8px_var(--color-accent-glow)]">Hire me</Link>
+            <Link href={isHome ? "#contact" : "/#contact"} className="inline-flex rounded-full bg-accent px-6 py-3 text-base font-medium text-accent-ink shadow-[0_8px_24px_-8px_var(--color-accent-glow)]">Hire me</Link>
           </Magnetic>
-          <button type="button" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} onClick={() => setOpen(o => !o)} className="md:hidden ml-1 inline-flex size-9 items-center justify-center rounded-full border border-line">
-            <span aria-hidden className="relative block h-[2px] w-4 bg-fg before:absolute before:-top-1.5 before:h-[2px] before:w-4 before:bg-fg after:absolute after:top-1.5 after:h-[2px] after:w-4 after:bg-fg" />
+          <button type="button" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} onClick={() => setOpen(o => !o)} className="md:hidden ml-1 inline-flex size-12 items-center justify-center rounded-full border border-line">
+            {/* three real bars in a column: equal width, one left edge, even gaps */}
+            <span aria-hidden className="flex flex-col gap-[6px]">
+              <span data-bar className="block h-[2px] w-5 bg-fg" />
+              <span data-bar className="block h-[2px] w-5 bg-fg" />
+              <span data-bar className="block h-[2px] w-5 bg-fg" />
+            </span>
           </button>
         </nav>
       </motion.header>

@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-const SECTIONS = ["hero", "about", "experience", "work", "services", "contact"];
+const SECTIONS = ["hero", "about", "stack", "experience", "work", "services", "contact"];
 
 test("home renders all six sections in order", async ({ page }) => {
   await page.goto("/");
