@@ -1,0 +1,17 @@
+## Context
+
+Restaurants in the Philippines juggle separate tools for orders, tables, payments and reservations. Staff switch screens, service slows, owners lose visibility. Dinecta puts QR ordering, table management, GCash/Maya payments, reservations and a branded site in one place, built for launch in Siargao.
+
+## What I built
+
+- QR-code ordering with a live kitchen and table view.
+- Table management and reservations backed by **PostgreSQL** with concurrency-safe status changes.
+- GCash and Maya payment integration, analytics, and a marketing site with a self-serve onboarding flow.
+
+## Architecture
+
+A single Next.js application with server components for the operator views and a lean client for the guest ordering flow, so a phone on café Wi-Fi stays fast. Money and state changes happen in the database with constraints, not in the browser.
+
+## Outcome
+
+Live at dinecta.com and in pilot with local venues. Designed by someone who has run two cafés, which shows in the defaults: fewer screens, faster service, clear numbers for the owner.

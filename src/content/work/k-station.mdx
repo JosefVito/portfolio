@@ -1,0 +1,18 @@
+## Context
+
+K-Station is a K-pop events and merchandise venue in the Netherlands. The client needed one website that sells products, publishes events and pages editors can change themselves, and takes bookings for the venue, without three separate logins and three sources of truth.
+
+## What I built
+
+- A three-service platform: **Medusa v2** for commerce (products, prices, stock, carts, orders, payments), **Strapi 5** for content (site chrome, homepage, events, marketing pages), and a **Next.js 16** storefront that is the only place the two meet.
+- A request-booking flow with **PostgreSQL-level concurrency protection**, so two people cannot take the same slot even under retry storms.
+- Stripe checkout, transactional email through Resend, MeiliSearch product search, Redis-backed workflows, all wired through one typed data seam in the storefront.
+- Unit, integration and Playwright end-to-end journeys, a path-filtered GitHub Actions pipeline, and branch protection on a three-tier `develop → staging → main` flow.
+
+## Architecture
+
+**Ownership is exclusive.** Commerce data lives in Medusa, content lives in Strapi, and nothing is managed in both. Member state (interests, followed groups, preferences) belongs to Medusa so no personal data enters the CMS. The storefront reads both through one seam module each, and the two back ends never talk to each other. The reasoning is written down as architecture decision records, so future changes have a place to start.
+
+## Outcome
+
+Live in production on Railway and Vercel with post-deploy smoke checks, an operator runbook, and a documented release rung from develop to staging to main. The client edits content and runs commerce without a developer in the loop; every change ships through CI.

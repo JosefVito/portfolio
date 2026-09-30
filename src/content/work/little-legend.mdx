@@ -1,0 +1,17 @@
+## Context
+
+Parents want a keepsake, not another app. Little Legend turns a few family details and memories into a personalised, illustrated storybook: preview today, PDF tonight, hardcover for years.
+
+## What I built
+
+- The full product flow: memory capture, story structure, generation hand-off and a polished storefront on **Next.js**.
+- Commerce and order logic in **Medusa**, so books, previews and hardcovers are real products with real checkout.
+- An AI story-and-image generation pipeline with structured prompts and review steps; end-to-end story generation runs in about 30 seconds.
+
+## Architecture
+
+Next.js owns presentation and the personalisation wizard. Medusa owns catalogue, cart and orders. The generation pipeline is a separate, queue-driven step so a slow model never blocks checkout, and every generated asset is reviewed and stored before it is shown to a family.
+
+## Outcome
+
+An independent product, live at littlelegend.online, built and shipped solo. It is the reference for how I approach AI features: as product plumbing with limits and review, not as a demo.
