@@ -125,6 +125,42 @@ test.describe("desktop", () => {
     for (let i = 0; i < 8; i++) { await page.mouse.wheel(0, 100); await page.waitForTimeout(60); }
     await page.waitForTimeout(800);
     expect(await page.evaluate(() => scrollY)).toBeGreaterThan(before + 200);
+    // the not-yet-risen off-screen card overflows the track; the wheel must not scroll the track itself and clip the covers
+    // (real Chrome reproduces it with one wheel tick; headless does not, so assert the track can't scroll vertically at all)
+    expect(await page.locator("#work ul[aria-label]").evaluate(e => getComputedStyle(e).overflowY)).toBe("hidden");
+    expect(await page.locator("#work ul[aria-label]").evaluate(e => e.scrollTop)).toBe(0);
+  });
+
+  for (const width of [1024, 1280, 1440]) {
+    test(`hero portrait gets real room at ${width}px`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto("/");
+      const w = await page.locator("#hero img").first().evaluate(e => e.getBoundingClientRect().width);
+      expect(w).toBeGreaterThanOrEqual(240);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    });
+  }
+
+  test("labels on case-study covers sit on a dark backing, so light screenshots keep them readable", async ({ page }) => {
+    await page.goto("/");
+    const bgs = await page.locator("#work .track-card [data-overlay]").evaluateAll(els => els.map(e => getComputedStyle(e).backgroundColor));
+    expect(bgs.length).toBeGreaterThanOrEqual(4);
+    bgs.forEach(bg => expect(bg).not.toBe("rgba(0, 0, 0, 0)"));
+  });
+
+  test("case-study cover keeps the screenshot's 16:10 shape, so nothing is trimmed", async ({ page }) => {
+    await page.goto("/work/k-station");
+    const ratio = await page.locator("main img").first().evaluate(e => { const r = e.getBoundingClientRect(); return r.width / r.height; });
+    expect(ratio).toBeCloseTo(1.6, 1);
+  });
+
+  test("every case-study card rises once the track is on screen, even the ones scrolled off to the right", async ({ page }) => {
+    await page.goto("/");
+    await goToSelector(page, "#work ul[aria-label]", 250);
+    await page.waitForTimeout(2500);
+    const track = page.locator("#work ul[aria-label]");
+    expect(await track.locator(":scope > li").evaluateAll(els => els.map(e => +getComputedStyle(e).opacity))).toEqual([1, 1, 1, 1]);
+    expect(await track.evaluate(e => e.scrollHeight - e.clientHeight)).toBeLessThanOrEqual(1);
   });
 
   test("hovering one case-study card dims the others", async ({ page }) => {

@@ -23,7 +23,7 @@ export function About() {
           </Reveal>
         </div>
         <Reveal delay={0.2} className="relative mx-auto w-full max-w-[420px]">
-          <Image src="/images/about.jpg" alt={`${profile.firstName} at work`} width={1200} height={1200} priority sizes="(min-width: 1024px) 28vw, 80vw" className="aspect-square w-full rounded-[20px] object-cover" />
+          <Image src="/images/about.jpg" alt={`${profile.firstName} with a coffee by the window`} width={1200} height={1200} priority sizes="(min-width: 1024px) 28vw, 80vw" className="aspect-square w-full rounded-[20px] object-cover" />
           <span className="absolute left-4 bottom-4 inline-flex items-center gap-2 rounded-full border border-line bg-bg/80 px-3 py-1.5 text-xs backdrop-blur"><span aria-hidden className="size-1.5 rounded-full bg-accent" />Available for work</span>
           <span className="absolute right-4 top-4 rounded-full border border-line bg-bg/80 px-3 py-1.5 text-xs backdrop-blur">{profile.city}</span>
         </Reveal>

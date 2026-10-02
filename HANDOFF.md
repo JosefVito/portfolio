@@ -2,7 +2,7 @@
 
 **Current phase:** 4 — Content, quality pass, launch
 **Next task:** Task 22 (real content, Lighthouse, production launch; needs owner)
-**Last green gate:** lint + typecheck + unit tests (44) + build + e2e (64 passed, 12 project-scoped skips) green after Task 21 (2026-09-30)
+**Last green gate:** lint + typecheck + unit tests (67) + build + e2e (92 passed, 56 project-scoped skips; run against the dev server on :3000) after the real-content pass (2026-10-02)
 
 ## Done
 - Tasks 1–4: scaffold, tokens/fonts, typed data, placeholder images
@@ -23,5 +23,10 @@ One data source `src/data/socials.ts` feeds the icon row in the footer, hero and
 ## Blocked / waiting on owner
 - Task 5 owner steps: `gh auth login` as JosefVito, create repo and push, branch protection, create Vercel project + env vars, enable Analytics. Nothing has been pushed yet.
 
+## Real content (2026-10-02)
+Done: hero portrait (owner selfie; WiFi password and house-rules sign blurred, do not re-crop), About photo, all 12 project images (1600x1000 JPEG: live-site captures for K-Station, Little Legend, Dinecta; Figma exports for MacDevelop, file CQ1Z1aiGzjfK7Z8aUKTgrc), K-Station live link now https://k-station-nine.vercel.app/nl until it has a domain. Owner OKs publishing K-Station's name and screenshots.
+Photo-fit fixes: hero type smaller at lg so the portrait column isn't starved; case-study cover box 16:10 to match images; card overlay chips get a dark backing; the work track owns the rise trigger (off-screen cards no longer leave the track vertically scrollable).
+Gotcha: after replacing a file in public/images, clear `.next/cache/images` and `.next/dev/cache/images` or the optimizer keeps serving the old picture locally.
+
 ## Content still missing (see spec §13)
-- Hero portrait, About photo, WhatsApp number, lead inbox, case-study screenshots, MacDevelop renders, public OK for K-Station name, CV link fix.
+- Case-study wording review, CV link (unclear if wanted). WhatsApp number and lead inbox are already set (see env vars).

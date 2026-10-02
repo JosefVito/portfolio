@@ -26,7 +26,7 @@ export function CaseStudyHero({ p, total }: { p: Project; total: number }) {
       <Reveal delay={0.4} className="mt-12">
         <div className="card overflow-hidden p-2">
           <div className="flex gap-1.5 px-2 py-2"><span className="size-2 rounded-full bg-line" /><span className="size-2 rounded-full bg-line" /><span className="size-2 rounded-full bg-line" /></div>
-          <Image src={p.cover} alt={`${p.title} cover`} width={1600} height={1000} priority sizes="(min-width: 1440px) 1280px, 92vw" className="aspect-[16/9] w-full rounded-lg object-cover" />
+          <Image src={p.cover} alt={`${p.title} cover`} width={1600} height={1000} priority sizes="(min-width: 1440px) 1280px, 92vw" className="aspect-[16/10] w-full rounded-lg object-cover" />
         </div>
       </Reveal>
     </header>

@@ -19,7 +19,7 @@ export function Hero() {
             </span>
           </Reveal>
           <p className="label mt-8 text-muted">— I&apos;m</p>
-          <h1 aria-label={`${profile.firstName} ${profile.lastName}`} className="display mt-2 text-[clamp(48px,8vw,112px)] font-bold">
+          <h1 aria-label={`${profile.firstName} ${profile.lastName}`} className="display mt-2 text-[clamp(48px,8vw,112px)] font-bold lg:text-[clamp(48px,5.5vw,88px)]">
             <WordReveal text={profile.firstName} accentFrom={0} delay={0.2} className="block" />
             <WordReveal text={profile.lastName} delay={0.35} className="block font-semibold" />
           </h1>
@@ -47,7 +47,7 @@ export function Hero() {
         </div>
 
         <div className="order-3 lg:text-right">
-          <h2 className="display text-[clamp(36px,5.5vw,80px)] font-bold">
+          <h2 className="display text-[clamp(36px,5.5vw,80px)] font-bold lg:text-[clamp(36px,4.2vw,64px)]">
             <WordReveal text={profile.title} delay={0.5} className="block" />
             <span className="stroke-text block transition-[-webkit-text-fill-color] hover:[-webkit-text-fill-color:var(--color-fg)]">{profile.titleOutline}</span>
           </h2>
