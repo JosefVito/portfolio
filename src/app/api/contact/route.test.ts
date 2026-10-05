@@ -17,7 +17,7 @@ describe("POST /api/contact", () => {
   it("sends and returns ok", async () => {
     const res = await POST(req(body));
     expect(res.status).toBe(200);
-    expect(send).toHaveBeenCalledWith(expect.objectContaining({ to: ["me@example.com"], replyTo: "ana@example.com", subject: "[Portfolio] A storefront — Ana" }));
+    expect(send).toHaveBeenCalledWith(expect.objectContaining({ from: "Josef Vito Portfolio <contact@josefvito.site>", to: ["me@example.com"], replyTo: "ana@example.com", subject: "[Portfolio] A storefront — Ana" }));
   });
   it("returns 400 on invalid fields", async () => {
     expect((await POST(req({ ...body, message: "hi" }))).status).toBe(400);

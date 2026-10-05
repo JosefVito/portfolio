@@ -22,7 +22,7 @@ export async function POST(req: Request) {
 
   const resend = new Resend(process.env.RESEND_API_KEY);
   const { error } = await resend.emails.send({
-    from: "Portfolio <onboarding@resend.dev>", // ponytail: sandbox sender until a domain is verified in Resend
+    from: "Josef Vito Portfolio <contact@josefvito.site>", // josefvito.site is verified in Resend (DKIM/SPF on Namecheap DNS)
     to: [to],
     replyTo: email,
     subject: `[Portfolio] ${subject} — ${name}`,
