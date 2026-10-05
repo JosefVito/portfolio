@@ -28,9 +28,15 @@ One data source `src/data/socials.ts` feeds the icon row in the footer, hero and
 
 - Env set (prod): NEXT_PUBLIC_WHATSAPP, RESEND_API_KEY, CONTACT_TO. Verified 2026-10-05: live form email arrived, Reply goes to the sender, WhatsApp opens on the owner's phone.
 
+## Custom domain (2026-10-05)
+- https://josefvito.site (Namecheap registrar, DNS stays on Namecheap BasicDNS). Records: A @ 76.76.21.21, CNAME www cname.vercel-dns.com, Resend: TXT resend._domainkey (DKIM), CNAME send → send.forge.rmta.net, CNAME rsend → rsend-apne1.forge.rmta.net, TXT _dmarc "v=DMARC1; p=none;". Namecheap parking records removed.
+- Vercel: www.josefvito.site 308 → josefvito.site; josefvito.vercel.app still serves. Vercel's "DNS Change Recommended" (A 216.198.79.1) is optional; legacy records keep working.
+- Resend domain josefvito.site verified (Tokyo region); contact mail now from contact@josefvito.site. Test delivered.
+- NEXT_PUBLIC_SITE_URL still unset: VERCEL_PROJECT_PRODUCTION_URL resolves to josefvito.site (sitemap, robots, OG all checked).
+
 ## Next
 - K-Station case-study claims review (owner to confirm: venue description, "live in production", booking concurrency, tooling list, role/timeline).
-- Optional: custom domain (then verify it in Resend and swap the onboarding@resend.dev sender), git-connected auto-deploys, Analytics.
+- Optional: git-connected auto-deploys, Analytics, a josefvito.site inbox (no MX yet, so mail *to* the domain bounces).
 
 ## Real content (2026-10-02)
 Done: hero portrait (owner selfie; WiFi password and house-rules sign blurred, do not re-crop), About photo, all 12 project images (1600x1000 JPEG: live-site captures for K-Station, Little Legend, Dinecta; Figma exports for MacDevelop, file CQ1Z1aiGzjfK7Z8aUKTgrc), K-Station live link now https://k-station-nine.vercel.app/nl until it has a domain. Owner OKs publishing K-Station's name and screenshots.
