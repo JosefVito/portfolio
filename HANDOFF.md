@@ -26,9 +26,11 @@ One data source `src/data/socials.ts` feeds the icon row in the footer, hero and
 - GitHub: JosefVito/portfolio (private), `main` = this worktree branch. Keep `gh` on macdevelop97 for the owner's other repos: switch to JosefVito only to push, then `gh auth switch --user macdevelop97`.
 - Env actually set: NEXT_PUBLIC_WHATSAPP (prod only; preview vars need git connection). NEXT_PUBLIC_SITE_URL unset on purpose (falls back to VERCEL_PROJECT_PRODUCTION_URL).
 
-## Blocked / waiting on owner
-- Add RESEND_API_KEY and CONTACT_TO (prod), then redeploy and send one real test message.
-- WhatsApp check on a phone, K-Station case-study claims review; optional: branch protection, Analytics.
+- Env set (prod): NEXT_PUBLIC_WHATSAPP, RESEND_API_KEY, CONTACT_TO. Verified 2026-10-05: live form email arrived, Reply goes to the sender, WhatsApp opens on the owner's phone.
+
+## Next
+- K-Station case-study claims review (owner to confirm: venue description, "live in production", booking concurrency, tooling list, role/timeline).
+- Optional: custom domain (then verify it in Resend and swap the onboarding@resend.dev sender), git-connected auto-deploys, Analytics.
 
 ## Real content (2026-10-02)
 Done: hero portrait (owner selfie; WiFi password and house-rules sign blurred, do not re-crop), About photo, all 12 project images (1600x1000 JPEG: live-site captures for K-Station, Little Legend, Dinecta; Figma exports for MacDevelop, file CQ1Z1aiGzjfK7Z8aUKTgrc), K-Station live link now https://k-station-nine.vercel.app/nl until it has a domain. Owner OKs publishing K-Station's name and screenshots.
