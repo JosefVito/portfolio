@@ -20,8 +20,15 @@ One data source `src/data/socials.ts` feeds the icon row in the footer, hero and
 ## Vercel env vars (set for Production AND Preview)
 `RESEND_API_KEY`, `CONTACT_TO` (must be the Resend account email until a domain is verified), `NEXT_PUBLIC_WHATSAPP` = `639150623492` (PH number, 63 + 10 digits, no plus), `NEXT_PUBLIC_SITE_URL`. A production build now fails if the site URL cannot be resolved; contact failures are logged with a `[contact]` prefix.
 
+## Deploy (2026-10-05)
+- Live: https://josefvito.vercel.app (Vercel project `josefvito`, team Sep's projects / seps-projects-7ad977c5). Deployed from this machine with `vercel deploy --prod --yes --scope seps-projects-7ad977c5`; NOT git-connected (Vercel login is linked to GitHub macdevelop97, repo is JosefVito's). Auto-deploys would need: repo public, Vercel GitHub app on JosefVito, macdevelop97 as collaborator, then `vercel git connect` from a normal terminal (this session's sandbox blocks it).
+- `vercel.json` pins framework to nextjs (the CLI-created project defaulted to "Other" and served only /public, so every page 404'd).
+- GitHub: JosefVito/portfolio (private), `main` = this worktree branch. Keep `gh` on macdevelop97 for the owner's other repos: switch to JosefVito only to push, then `gh auth switch --user macdevelop97`.
+- Env actually set: NEXT_PUBLIC_WHATSAPP (prod only; preview vars need git connection). NEXT_PUBLIC_SITE_URL unset on purpose (falls back to VERCEL_PROJECT_PRODUCTION_URL).
+
 ## Blocked / waiting on owner
-- Task 5 owner steps: `gh auth login` as JosefVito, create repo and push, branch protection, create Vercel project + env vars, enable Analytics. Nothing has been pushed yet.
+- Add RESEND_API_KEY and CONTACT_TO (prod), then redeploy and send one real test message.
+- WhatsApp check on a phone, K-Station case-study claims review; optional: branch protection, Analytics.
 
 ## Real content (2026-10-02)
 Done: hero portrait (owner selfie; WiFi password and house-rules sign blurred, do not re-crop), About photo, all 12 project images (1600x1000 JPEG: live-site captures for K-Station, Little Legend, Dinecta; Figma exports for MacDevelop, file CQ1Z1aiGzjfK7Z8aUKTgrc), K-Station live link now https://k-station-nine.vercel.app/nl until it has a domain. Owner OKs publishing K-Station's name and screenshots.
