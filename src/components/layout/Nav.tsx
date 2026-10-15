@@ -63,11 +63,11 @@ export function Nav() {
             <Link href={isHome ? "#contact" : "/#contact"} className="inline-flex rounded-full bg-accent px-6 py-3 text-base font-medium text-accent-ink shadow-[0_8px_24px_-8px_var(--color-accent-glow)]">Hire me</Link>
           </Magnetic>
           <button type="button" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} onClick={() => setOpen(o => !o)} className="md:hidden ml-1 inline-flex size-12 items-center justify-center rounded-full border border-line">
-            {/* three real bars in a column: equal width, one left edge, even gaps */}
-            <span aria-hidden className="flex flex-col gap-[6px]">
-              <span data-bar className="block h-[2px] w-5 bg-fg" />
-              <span data-bar className="block h-[2px] w-5 bg-fg" />
-              <span data-bar className="block h-[2px] w-5 bg-fg" />
+            {/* three real bars; open state slides the outer two together and crosses them into an X (6px gap + 2px bar = 8px) */}
+            <span aria-hidden data-bars data-open={open} className="group flex flex-col gap-[6px]">
+              <span data-bar className="block h-[2px] w-5 bg-fg transition-transform duration-300 motion-reduce:transition-none group-data-[open=true]:translate-y-[8px] group-data-[open=true]:rotate-45" />
+              <span data-bar className="block h-[2px] w-5 bg-fg transition-opacity duration-200 motion-reduce:transition-none group-data-[open=true]:opacity-0" />
+              <span data-bar className="block h-[2px] w-5 bg-fg transition-transform duration-300 motion-reduce:transition-none group-data-[open=true]:-translate-y-[8px] group-data-[open=true]:-rotate-45" />
             </span>
           </button>
         </nav>

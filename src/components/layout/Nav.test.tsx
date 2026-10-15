@@ -22,4 +22,12 @@ describe("Nav on a case-study page", () => {
     fireEvent.keyDown(document, { key: "Escape" });
     expect(document.body.style.overflow).toBe("");
   });
+
+  it("turns the hamburger bars into an X while the menu is open", () => {
+    const { container } = render(<Nav />);
+    const bars = container.querySelector("[data-bars]")!;
+    expect(bars).toHaveAttribute("data-open", "false");
+    fireEvent.click(screen.getByLabelText("Open menu"));
+    expect(bars).toHaveAttribute("data-open", "true");
+  });
 });
