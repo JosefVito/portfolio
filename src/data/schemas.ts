@@ -31,7 +31,7 @@ export const StopSchema = z.object({
   role: z.string(),
   company: z.string(),
   location: z.string(),
-  type: z.enum(["full-time", "internship", "founder"]),
+  type: z.enum(["freelance", "full-time", "internship", "founder"]),
   summary: z.string().min(20),
   highlights: z.array(z.string()).min(2).max(4),
   stack: z.array(z.string()).min(1),

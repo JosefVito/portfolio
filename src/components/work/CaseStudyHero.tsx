@@ -19,7 +19,7 @@ export function CaseStudyHero({ p, total }: { p: Project; total: number }) {
           <div className="col-span-2"><p className="label text-muted">Stack</p><p className="mt-1">{p.stack.join(" · ")}</p></div>
           <div className="col-span-2">
             <p className="label text-muted">{p.status === "live" ? "Live" : "Status"}</p>
-            {p.live ? <a href={p.live} target="_blank" rel="noreferrer" className="mt-1 inline-block text-accent hover:underline">Visit live site ↗</a> : <span className="mt-1 inline-block"><Chip accent>In progress</Chip> <span className="text-muted">design complete, build under way</span></span>}
+            {p.live ? <a href={p.live} target="_blank" rel="noreferrer" className="mt-1 inline-block text-accent hover:underline">Visit live site ↗</a> : <span className="mt-1 inline-block"><Chip accent>In progress</Chip> <span className="text-muted">build under way</span></span>}
           </div>
         </Reveal>
       </div>

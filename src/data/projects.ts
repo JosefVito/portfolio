@@ -10,10 +10,9 @@ export const projects: Project[] = [
     blurb: "Three-service commerce, content and booking platform for a K-pop venue in the Netherlands.",
     chips: ["Next.js", "Medusa", "Strapi"],
     role: "Sole engineer",
-    timeline: "Jul 2025 → now",
+    timeline: "Build in progress",
     stack: ["Next.js 16", "TypeScript", "Medusa v2", "Strapi 5", "PostgreSQL", "Redis", "Stripe", "MeiliSearch", "Docker", "Playwright", "GitHub Actions"],
-    live: "https://k-station-nine.vercel.app/nl",
-    status: "live",
+    status: "in-progress",
     cover: "/images/work/k-station/cover.jpg",
     screenshots: [
       { src: "/images/work/k-station/shot-1.jpg", alt: "K-Station K-Beauty bestsellers and K-Pop releases" },

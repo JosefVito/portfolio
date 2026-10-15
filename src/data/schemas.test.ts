@@ -9,10 +9,17 @@ import path from "node:path";
 
 describe("content data", () => {
   it("profile is valid", () => expect(ProfileSchema.safeParse(profile).success).toBe(true));
-  it("has four experience stops, newest first", () => {
-    expect(experience).toHaveLength(4);
+  it("has five experience stops, newest first", () => {
+    expect(experience).toHaveLength(5);
     experience.forEach(s => expect(StopSchema.safeParse(s).success).toBe(true));
-    expect(experience[0].company).toBe("MacDevelop");
+    expect(experience[0].company).toBe("Self-employed");
+    expect(experience[1].company).toBe("MacDevelop");
+    expect(experience[1].dates).toBe("Feb 2026 — Oct 2026");
+  });
+  it("K-Station has no public link while it is in progress", () => {
+    const k = projects.find(p => p.slug === "k-station")!;
+    expect(k.live).toBeUndefined();
+    expect(k.status).toBe("in-progress");
   });
   it("has four projects with unique slugs and covers", () => {
     expect(projects).toHaveLength(4);
