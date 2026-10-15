@@ -7,12 +7,12 @@ describe("ExperienceList", () => {
   it("starts with the first stop active and switches on hover", async () => {
     render(<ExperienceList stops={experience} />);
     const card = screen.getByTestId("detail-card");
-    expect(card).toHaveTextContent("MacDevelop");
-    expect(card).toHaveTextContent("01 / 04");
+    expect(card).toHaveTextContent("Freelance");
+    expect(card).toHaveTextContent("01 / 05");
     fireEvent.mouseEnter(screen.getByRole("button", { name: /Owner & General Manager/ }));
     // mode="wait" crossfade: the swap lands after the 0.3s exit animation
     await waitFor(() => expect(card).toHaveTextContent("Vito Cafe"));
-    expect(card).toHaveTextContent("04 / 04");
+    expect(card).toHaveTextContent("05 / 05");
   });
   it("expands a stop inline on click (phone accordion)", () => {
     render(<ExperienceList stops={experience} />);
