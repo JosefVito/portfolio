@@ -4,6 +4,12 @@
 **Next task:** Task 22 (real content, Lighthouse, production launch; needs owner)
 **Last green gate:** lint + typecheck + unit tests (67) + build + e2e (92 passed, 56 project-scoped skips; run against the dev server on :3000) after the real-content pass (2026-10-02)
 
+## Freelance update (2026-10-15)
+- Experience: new top entry "Freelance Full-Stack Developer" (Oct 2026 — present, from LinkedIn); MacDevelop engineer now ends Oct 2026. Five stops; schema type enum gained `freelance`.
+- K-Station: public link removed, status in-progress, case study no longer says "Live in production" (owner does not want visitors while it is built). Restore `live` + status when it launches.
+- Hamburger bars now animate into an X (`Nav.tsx`, `data-bars`/`data-open`). Root cause: bars had no open-state styling. Phone-width look unconfirmed by eye; check on the PR preview.
+- Gate green (lint, typecheck, unit, build, e2e 92 passed / 56 skipped).
+
 ## Done
 - Tasks 1–4: scaffold, tokens/fonts, typed data, placeholder images
 - Task 5 (local part): Playwright config, smoke spec, CI workflow
